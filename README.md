@@ -44,3 +44,11 @@ Neural networks cannot read text; they can only process numbers. The tokenizer a
 - **The Fast-Food Menu:** The tokenizer maintains a static vocabulary dictionary. When you input a word, it looks up the corresponding integer ID (e.g., "apple" = 42).
 - **Sub-words (Byte Pair Encoding):** Tokenizers rarely chop by whole words (too many variations) or single letters (too little meaning). They chop text into common syllables and chunks (e.g., "unbelievably" -> "un", "believ", "ably").
 - **Control Tokens:** Tokenizers inject hidden IDs (like `<|start|>` or `<|end|>`) to give the network structural cues about the prompt.
+
+### 7. Embeddings (Mapping Meaning to Math)
+
+Tokenizers output raw integer IDs, but raw integers cannot be used in neural network arithmetic (multiplying an ID by a weight creates mathematical nonsense).
+
+- **The Conceptual Map:** An Embedding Layer replaces each integer ID with an array of decimals (a vector). These decimals act as coordinates in a massive, multi-dimensional map.
+- **Spatial Meaning:** Words with similar meanings (like "King" and "Queen") are plotted close to each other. Unrelated words (like "Apple") are plotted far away.
+- **The Bridge:** This coordinate array is the actual `double[]` input that is fed into the first layer of the deep neural network.

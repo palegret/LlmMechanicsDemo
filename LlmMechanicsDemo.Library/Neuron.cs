@@ -53,7 +53,7 @@ public class Neuron
 
     public void Save(string filePath)
     {
-        using BinaryWriter writer = new BinaryWriter(File.Open(filePath, FileMode.Create));
+        using BinaryWriter writer = new(File.Open(filePath, FileMode.Create));
         writer.Write(Bias);
         writer.Write(Weights.Length);
         
@@ -65,7 +65,7 @@ public class Neuron
 
     public void Load(string filePath)
     {
-        using BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open));
+        using BinaryReader reader = new(File.Open(filePath, FileMode.Open));
         Bias = reader.ReadDouble();
         int expectedWeightCount = reader.ReadInt32();
 
