@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="LlmMechanicsDemo.Library/LlmMechanicsDemo.Library.csproj" />
+  <Project Path="LlmMechanicsDemo.Tests/LlmMechanicsDemo.Tests.csproj" />
+</Solution>
