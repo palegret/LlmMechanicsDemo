@@ -52,3 +52,11 @@ Tokenizers output raw integer IDs, but raw integers cannot be used in neural net
 - **The Conceptual Map:** An Embedding Layer replaces each integer ID with an array of decimals (a vector). These decimals act as coordinates in a massive, multi-dimensional map.
 - **Spatial Meaning:** Words with similar meanings (like "King" and "Queen") are plotted close to each other. Unrelated words (like "Apple") are plotted far away.
 - **The Bridge:** This coordinate array is the actual `double[]` input that is fed into the first layer of the deep neural network.
+
+### 8. Output Projection (The Police Sketch)
+
+The Deep Neural Network does not output a word; it outputs a final coordinate array representing the "ideal" next word. We must translate this math back into text.
+
+- **The Comparison:** The Output Projection Layer compares this ideal coordinate array against the known coordinate arrays of every single word in the Tokenizer's dictionary.
+- **Dot Product Scoring:** It calculates similarity using a Dot Product (multiplying matching coordinates together). The vocabulary word that mathematically looks the most like the network's ideal output gets the highest Match Score.
+- **The Final Step:** A Decoding Algorithm selects the winning Token ID based on those scores. The Tokenizer translates that final ID back into English text, completing the cycle from Text -> Math -> Text.

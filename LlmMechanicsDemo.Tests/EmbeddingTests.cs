@@ -14,15 +14,15 @@ public class EmbeddingTests
 
         // Map dimensions: [Humanity, Royalty, Femininity]
         int kingId = 100;
-        double[] kingCoordinates = { 0.9, 0.9, -0.9 };
+        double[] kingCoordinates = [0.9, 0.9, -0.9];
         embeddingLayer.SetWordVector(kingId, kingCoordinates);
 
         int queenId = 101;
-        double[] queenCoordinates = { 0.9, 0.9, 0.9 };
+        double[] queenCoordinates = [0.9, 0.9, 0.9];
         embeddingLayer.SetWordVector(queenId, queenCoordinates);
 
         int appleId = 42;
-        double[] appleCoordinates = { -0.9, -0.1, 0.0 };
+        double[] appleCoordinates = [-0.9, -0.1, 0.0];
         embeddingLayer.SetWordVector(appleId, appleCoordinates);
 
         // ACT: The Tokenizer outputs the ID for "Queen", and we fetch its coordinates
