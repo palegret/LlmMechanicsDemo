@@ -26,7 +26,7 @@ public class NetworkMechanicsTests : IDisposable
         layer2.Neurons[0].Weights[2] = -3.0; 
         layer2.Neurons[0].Bias = -5.0;       
 
-        double[] rawInputs = { 8.0, 2.0 };
+        double[] rawInputs = [8.0, 2.0];
         double[] finalResult = deepNetwork.Process(rawInputs);
 
         Assert.Single(finalResult);
@@ -39,10 +39,10 @@ public class NetworkMechanicsTests : IDisposable
         var config = new NetworkHyperparameters { InputCount = 2, UseReluActivation = false };
         var studentNeuron = new Neuron(config);
         
-        double[] inputsA = { 1.0, 0.0 };
+        double[] inputsA = [1.0, 0.0];
         double targetA = 10.0;
         
-        double[] inputsB = { 0.0, 1.0 };
+        double[] inputsB = [0.0, 1.0];
         double targetB = -5.0;
 
         Assert.Equal(0.0, studentNeuron.Predict(inputsA));
@@ -62,7 +62,7 @@ public class NetworkMechanicsTests : IDisposable
     {
         var config = new NetworkHyperparameters { InputCount = 2, UseReluActivation = false };
         var trainerNeuron = new Neuron(config);
-        double[] inputs = { 1.0, 0.0 };
+        double[] inputs = [1.0, 0.0];
         
         for (int i = 0; i < 100; i++)
         {

@@ -36,3 +36,11 @@ Knowledge in an LLM is not stored in a database or text file; it exists entirely
 ### 5. Persistence (Training vs. Inference)
 
 Training requires immense computational loops to discover the correct parameters. Once discovered, the state is persisted by writing the raw, contiguous decimal values directly to a binary file. End-users bypass the expensive training loop by loading this binary memory dump back into RAM, enabling instant **Inference**. Because parameters are continuous memory blocks, relational databases (like SQLite) are architecturally inappropriate for weight storage.
+
+### 6. Tokenization (The Translator)
+
+Neural networks cannot read text; they can only process numbers. The tokenizer acts as a bidirectional translator between human language and the network.
+
+- **The Fast-Food Menu:** The tokenizer maintains a static vocabulary dictionary. When you input a word, it looks up the corresponding integer ID (e.g., "apple" = 42).
+- **Sub-words (Byte Pair Encoding):** Tokenizers rarely chop by whole words (too many variations) or single letters (too little meaning). They chop text into common syllables and chunks (e.g., "unbelievably" -> "un", "believ", "ably").
+- **Control Tokens:** Tokenizers inject hidden IDs (like `<|start|>` or `<|end|>`) to give the network structural cues about the prompt.
