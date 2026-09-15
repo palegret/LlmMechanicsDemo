@@ -6,7 +6,7 @@ public class NeuronLayer
 
     public NeuronLayer(NetworkHyperparameters config)
     {
-        Neurons = new List<Neuron>();
+        Neurons = [];
         for (int i = 0; i < config.NeuronCount; i++)
         {
             Neurons.Add(new Neuron(config));

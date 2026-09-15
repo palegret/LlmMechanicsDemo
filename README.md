@@ -60,3 +60,15 @@ The Deep Neural Network does not output a word; it outputs a final coordinate ar
 - **The Comparison:** The Output Projection Layer compares this ideal coordinate array against the known coordinate arrays of every single word in the Tokenizer's dictionary.
 - **Dot Product Scoring:** It calculates similarity using a Dot Product (multiplying matching coordinates together). The vocabulary word that mathematically looks the most like the network's ideal output gets the highest Match Score.
 - **The Final Step:** A Decoding Algorithm selects the winning Token ID based on those scores. The Tokenizer translates that final ID back into English text, completing the cycle from Text -> Math -> Text.
+
+### 9. The End-to-End Pipeline (Putting it all Together)
+
+When a user submits a prompt, the data flows through a strict, multi-step assembly line. The neural network engine is completely isolated from the English language by translator components.
+
+1. **Input:** The user types a phrase (e.g., "royal woman").
+2. **Tokenization (Text -> ID):** The Tokenizer chops the phrase into chunks and looks up their integer IDs from its vocabulary menu (e.g., `[10, 11]`).
+3. **Embedding (ID -> Math):** The Embedding Layer looks up the multi-dimensional coordinate array for each ID. These arrays are combined (via addition or advanced mechanisms like Attention) into a single context vector (e.g., `[1.0, 1.0, 1.0]`).
+4. **Deep Neural Network (Math -> Math):** The input vector flows through stacked Neuron Layers. Billions of multipliers (Weights) and handicaps (Biases) transform the array into a final "thought" vector representing the ideal next word.
+5. **Output Projection (Math -> ID):** The final thought vector is mathematically compared (via Dot Product) against the embedding vector of every known word in the vocabulary. The word with the highest match score wins.
+6. **Decoding (ID -> Text):** The Tokenizer translates the winning integer ID back into a human-readable English chunk.
+7. **Iteration:** The new word is appended to the user's original prompt, and the entire loop runs again to generate the subsequent word.

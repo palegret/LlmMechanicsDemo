@@ -13,7 +13,7 @@ public class NetworkMechanicsTests : IDisposable
         var config1 = new NetworkHyperparameters { InputCount = 2, NeuronCount = 3, UseReluActivation = true };
         var config2 = new NetworkHyperparameters { InputCount = 3, NeuronCount = 1, UseReluActivation = true };
 
-        var deepNetwork = new DeepNeuralNetwork(new List<NetworkHyperparameters> { config1, config2 });
+        var deepNetwork = new DeepNeuralNetwork([config1, config2]);
 
         var layer1 = deepNetwork.Layers[0];
         layer1.Neurons[0].Weights[0] = 1.5; layer1.Neurons[0].Weights[1] = -2.0; layer1.Neurons[0].Bias = -1.0;

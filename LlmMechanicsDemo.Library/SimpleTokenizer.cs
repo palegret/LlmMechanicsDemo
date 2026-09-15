@@ -8,8 +8,8 @@ public class SimpleTokenizer
 
     public SimpleTokenizer()
     {
-        _chunkToId = new Dictionary<string, int>();
-        _idToChunk = new Dictionary<int, string>();
+        _chunkToId = [];
+        _idToChunk = [];
     }
 
     // Concept: Building the vocabulary menu

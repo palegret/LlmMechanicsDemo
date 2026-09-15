@@ -10,7 +10,7 @@ public class DeepNeuralNetwork
 
     public DeepNeuralNetwork(List<NetworkHyperparameters> layerConfigs)
     {
-        Layers = new List<NeuronLayer>();
+        Layers = [];
         for (int i = 0; i < layerConfigs.Count; i++)
         {
             Layers.Add(new NeuronLayer(layerConfigs[i]));
